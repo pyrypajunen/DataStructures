@@ -15,9 +15,9 @@ class Node:
         self.visited = False
         # this is the node where we came from in the shortest path
         self.predecessor = None
-        # this is how we store the children (edges will represent the neighbors)
+        # store the children
         self.adjacency_list = []
-        # this is the minimum distance (shortest path) from the starting node
+        # the minimum distance (shortest path) from the starting node
         self.min_distance = float('inf')
 
     # compare objects
@@ -28,7 +28,6 @@ class Node:
 class DijkstraAlgorithm:
 
     def __init__(self):
-        # this is the heap representation (binary heap)
         self.heap = []
 
     def calculate(self, start_node):
@@ -40,13 +39,13 @@ class DijkstraAlgorithm:
         # have to iterate until the heap is not empty
         while self.heap:
 
-            # we pop the node with lowest min_distance parameter
+            # pop the node with lowest min_distance parameter
             actual_node = heapq.heappop(self.heap)
 
             if actual_node.visited:
                 continue
 
-            # we have to consider the neighbors
+            # have to consider the neighbors
             for edge in actual_node.adjacency_list:
                 u = edge.start_node
                 v = edge.target_node
@@ -55,8 +54,6 @@ class DijkstraAlgorithm:
 
                 # there is a shorter path to the v node
                 if new_distance < v.min_distance:
-                    # when there is a shortest path available then we update the
-                    # predecessor accordingly
                     v.predecessor = u
                     v.min_distance = new_distance
                     heapq.heappush(self.heap, v)
