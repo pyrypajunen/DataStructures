@@ -20,7 +20,6 @@ class ZAlgorithm:
 
         # consider all the letters of the S string
         for k in range(1, len(self.S)):
-            # we are not within a Z box (naive approach)
             if k > right:
 
                 n = 0
@@ -40,7 +39,6 @@ class ZAlgorithm:
                 if self.Z[p] < right - k + 1:
                     self.Z[k] = self.Z[p]
                 else:
-                    # we can not copy the values
                     i = right + 1
 
                     while i < len(self.S) and self.S[i] == self.S[i - k]:
@@ -61,5 +59,5 @@ class ZAlgorithm:
 
 if __name__ == "__main__":
 
-    algorithm = ZAlgorithm('aabza', 'abzcaabzaabza')
+    algorithm = ZAlgorithm('pyry', 'lol, makkara, jungle, pyry')
     algorithm.search()
