@@ -1,4 +1,4 @@
 # Data Structures
 
 
-Data structures & algorithms course implementations.
+Data structures & algorithms course.
